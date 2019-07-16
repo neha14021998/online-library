@@ -1,0 +1,32 @@
+extends layout
+block bodystyle
+    body(style='background-image: url("../images/img14.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+    .container
+        != messages('message', locals)
+        if(errors)
+            each error, i in errors
+              div(class="alert alert-danger") #{error.msg}
+    div(id='container' style='color:black; font-style:italic; font-family: Arial, Helvetica, sans-serif;')
+        h2 Hello Student !!
+        h4 What would you like to do ?
+        br
+        p You can avail the following services: 
+        ul
+          li Search for a book in the library.
+          li Request a Book.
+          li Check the books issued
+        p Note:- The fine will be calculated from the date of request made.
+        div(style='border:1px solid black; padding:10px; width:50%')
+            p Search Book !!
+            a.form-control.btn.btn-primary(href="/issue/request") SEARCH BOOK
+            br
+            br
+            p Show Issued Book !!
+            a.form-control.btn.btn-success(href="/issue/issuedbook") SHOW ISSUED BOOKS
+           
+        
+        

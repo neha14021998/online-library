@@ -1,0 +1,57 @@
+extends layout
+block link
+  link(rel="stylesheet", href="mycss/register.css")
+  link(rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+  script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='bower_components/jquery/dist/jquery.min.js')
+block content
+  div(id='form_text')
+    h3 Register Yourself !!
+    form.form-group(name='myRegistration' method='POST' action='/register/add')
+      .formfield
+        label(for='name')  NAME :
+        input#name.form-control(type='text' name='name' required='true')
+      .formfield
+        label(for='enroll') ENROLLMENT NUMBER :
+        input#enroll.form-control(type='text' name='enroll' required='true')
+      .formfield
+        label(for='libcard') LIBRARY CARD NUMBER :
+        input#libcard.form-control(type='text' name='libcard' required='true')
+      .formfield
+        label(for='branch') BRANCH :
+        select#branch.form-control(name='branch')
+          option(value=' ' selected='') ---Select branch--
+          option(value='cse') Computer Science
+          option(value='it') Information Technology
+          option(value='ei') Electronics and Instrumentation
+          option(value='ec') Electronics and Telecommunication
+          option(value='mech') Mechanical Engineering
+          option(value='civil') Civil Engineering
+      .formfield
+        label(for='sem') SEMESTER
+        select#sem.form-control(name='sem')
+          option(value=' ' selected='') --Select semester--
+          option(value='1') I
+          option(value='2') II
+          option(value='3') III
+          option(value='4') IV
+          option(value='5') V
+          option(value='6') VI
+          option(value='7') VII
+          option(value='8') VIII
+      .formfield
+        label(for='email') EMAIL :
+        input#email.form-control(type='email' name='email' required='true')
+        .formfield
+        label(for='mobile') MOBILE NUMBER :
+        input#mobile.form-control(type='text' name='mobile' maxlength='10' required='true')
+      .formfield
+        label(for='pwd') PASSWORD
+        input#password.form-control(type='text' name='password' minlength='8' required='true')
+        br
+      .formfield
+        label(for='cpwd') CONFIRM PASSWORD :
+        input#cpwd.form-control(type='password' name='cpwd' required='true')
+
+      input.btn.btn-success(type='submit' value='REGISTER')
+      input.btn.btn-primary(type='reset' value='CANCEL')

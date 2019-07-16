@@ -1,0 +1,22 @@
+extends adminlayout
+block bodystyle
+    body(style='background-image: url("../images/img15.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+    div(style=' width:50%;')
+        h3 Enter details of the Book !!
+        form.form-group(name='addBOOK' method='POST' action='/adminpage/addBook')
+            .formfield
+                label(for='ref_id')  ISBN NUMBER :
+                input#ref_id.form-control(type='text' name='ref_id' required='true')
+            .formfield
+                label(for='name') BOOK NAME :
+                input#name.form-control(type='text' name='name' required='true')
+            .formfield
+                label(for='slot') SLOT :
+                input#slot.form-control(type='text' name='slot' required='true')
+            br 
+            input.btn.btn-success(type='submit' value='ADD')
+            input.btn.btn-primary(type='reset' value='CANCEL')

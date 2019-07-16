@@ -1,0 +1,24 @@
+extends adminlayout
+block bodystyle
+    body(style='background-image: url("../images/img16.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+    h3 Issue Book to the Student 
+    if(requested)
+        form.form-group( method='POST' action='/adminpage/issueSave')
+          label(for='libcard') STUDENT ID :
+          input.form-control(name='libcard' id='libcard' type='text' value=requested.libcard required='true')
+          label(for='isbn') ISBN NUMBER :
+          input.form-control(name='isbn' id='isbn' type='text' value=requested.book_ref required='true')
+          label(for='req_date') REQUEST DATE :
+          input.form-control(name='req_date' id='req_date' type='text' value=requested.req_date required='true')
+          label(for='issue_date') ISSUE DATE :
+          input.form-control(name='issue_date' id='issue_date' type='text' value=requested.issue_date required='true')
+          input.btn.btn-primary(type='submit' value='ISSUE')
+    else
+        form.form-group(method='POST' action='/adminpage/issue')
+          label(for='isbn') ENTER ISBN NUMBER :
+          input.form-control(name='isbn' id='isbn' type='text' required='true')
+          input.btn.btn-primary(type='submit' value='Get Details !!')

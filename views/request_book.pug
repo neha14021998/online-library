@@ -1,0 +1,34 @@
+extends layout
+block bodystyle
+    body(style='background-image: url("../images/img1.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+    link(rel="stylesheet" href="mycss/issue.css")
+block content
+  div(style='color:white;')
+    h5 Search book by full name or part of the name.   
+    form.form-group(name='search' action='/issue/request' method='POST')
+      .input-group.mb-3
+        input#search_key.form-control(type='text' name='search_key')
+        .input-group-append
+          input.btn.btn-success(type='submit' value='Search')
+  if(found)
+    table.table.table-bordered.table-striped(style='width:100%; border:1px solid white; background-color:white;')
+      tr
+        th ISBN Number
+        th Book Name
+        th Slot
+        th Status
+        th Request
+      each val,book in found  
+        tr
+          td #{val.reference_id}
+          td #{val.bookname}
+          td #{val.slot}
+          td #{val.status}
+          td
+            form.form-group(method='POST' action='/issue/'+val.reference_id)
+              input.btn.btn-info(type='submit' value='REQUEST')
+      else
+        li There are no such books. Try for other book. 

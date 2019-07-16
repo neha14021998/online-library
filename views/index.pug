@@ -1,0 +1,54 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+  script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+  script(src='bower_components/jquery/dist/jquery.min.js')
+  link(rel='stylesheet' href='mycss/index.css')
+nav.navbar.navbar-expand-md.bg-dark
+  a.navbar-brand(href='/') Online Library
+  .container
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label="{{ __('Toggle navigation') }}")
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      // Left Side Of Navbar
+      ul.navbar-nav.mr-auto
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/issue/request') Search Book
+          li.nav-item
+            a.nav-link(href='/issue/issuedbook') Books Requested
+      ul.navbar-nav.navbar-right
+        if(user)
+          li.nav-item
+            a.nav-link(href='/login/logout') Logout
+        else
+          li.nav-item
+            a.nav-link(href='/register') Register
+          li.nav-item
+            a.nav-link(href='/login') Login
+          
+br
+.container
+  != messages('message', locals)
+  if(errors)
+    each error, i in errors
+      div(class="alert alert-danger") #{error.msg}
+br
+div(id='container')
+  div(id='about')
+    h1 Online Library
+    br
+    p This website is made to help the students save their time and search for the book in the library from their phones and request it and then collect it from the library. It will render you services like searching a book, requesting a book, see the requested book, deadlines, fine on extending the deadline.  
+  div(id='sideblock')
+    p Student Log in !!
+    a.form-control.btn.btn-primary(href="/login") LOGIN
+    br
+    p Student Registeration !!
+    a.form-control.btn.btn-success(href="/register") REGISTER
+    br
+    p Admin Log in !!
+    a.form-control.btn.btn-warning(href="/adminpage/login") ADMIN LOGIN

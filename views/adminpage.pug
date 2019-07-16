@@ -1,0 +1,30 @@
+extends adminlayout
+block bodystyle
+    body(style='background-image: url("../images/img14.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+    div(id='container' style='color:black; font-style:italic; font-family: Arial, Helvetica, sans-serif;')
+        h2 Hello Admin !!
+        h4 What would you like to do ?
+        br
+        p You can avail the following services: 
+        ul
+            li Add new students by entering their enrollment number and library card number so that they can register themselves.
+            li Add new books by entering their ISBN number, name and slot where it is kept.
+            li Issue requested book to the student.
+        div(style='border:1px solid black; padding:10px; width:50%')
+            p Add New Student !!
+            a.form-control.btn.btn-primary(href="/adminpage/addstud") ADD STUDENT
+            br
+            p Add New Book !!
+            a.form-control.btn.btn-success(href="/adminpage/addBook") ADD BOOK
+            br
+            p Issue Book to Student !!
+            a.form-control.btn.btn-warning(href="/adminpage/issuebook") ISSUE BOOK
+            br
+            p Return Book !!
+            a.form-control.btn.btn-info(href="/adminpage/returned") RETURN BOOK
+        
+        

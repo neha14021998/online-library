@@ -1,0 +1,18 @@
+extends layout
+block bodystyle
+    body(style='background-image: url("../images/img3.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+  div(style='height:300px; width:500px; color:white; margin-left:800px; margin-top:50px; border:1px white solid; padding:10px')
+    h3 Login !!
+    form.form-group(name='login' method='POST' action='/adminpage/login')
+      label(for='username') USERNAME :
+      input.form-control(name='username' id='username' type='text' required='true')
+      br
+      label(for='password') PASSWORD :
+      input.form-control(id='password' name='password' type='password' required='true')
+      br
+      input.btn.btn-success(type='submit' value='LOGIN')
+      input.btn.btn-secondary(type='reset' value='CANCEL')

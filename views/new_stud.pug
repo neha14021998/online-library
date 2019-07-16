@@ -1,0 +1,18 @@
+extends adminlayout
+block bodystyle
+    body(style='background-image: url("../images/img18.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+    div(style='color:white; width:50%;')
+        h3 Enter details of the Student !!
+        form.form-group(name='addstud' method='POST' action='/adminpage/addstud')
+            .formfield
+                label(for='enroll_id')  STUDENT ENROLLMENT :
+                input#enroll_id.form-control(type='text' name='enroll_id' required='true')
+            .formfield
+                label(for='lib_id') STUDENT LIBRARY ID :
+                input#lib_id.form-control(type='text' name='lib_id' required='true')
+            input.btn.btn-success(type='submit' value='ADD')
+            input.btn.btn-primary(type='reset' value='CANCEL')

@@ -1,0 +1,33 @@
+extends layout
+block bodystyle
+    body(style='background-image: url("../images/img13.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+    
+block content
+  div(style='color:white; width:70%;')
+    h3 Books you have requested
+    if(founds) 
+      table.table.table-bordered.table-striped(style='width:100%; border:1px solid white; background-color:white;')
+        tr
+          th ISBN No.
+          th Book Name
+          th Request Date
+          th Issue Date
+          th Return Date
+          th Fine
+          th Cancel Request
+        each val,book in founds 
+          tr
+            td #{val.bookref}
+            td #{val.bookname}
+            td #{val.req_date}
+            td #{val.issue_date}
+            td #{val.return_date}
+            td #{val.fine}
+            td 
+              a.btn.btn-danger(href='/issue/delete/'+val.bookref ) CANCEL
+        else
+          li You have not requested any books yet!! 
+

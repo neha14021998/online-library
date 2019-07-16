@@ -1,0 +1,29 @@
+extends adminlayout
+block bodystyle
+    body(style='background-image: url("../images/img17.jpg"); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;')
+    link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    script(src='../bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='../bower_components/jquery/dist/jquery.min.js')
+block content
+    div(style='color:white; width:70%;')
+        h3 Take Return of Book from Student !!
+        if(returned) 
+            form.form-group( method='POST' action='/adminpage/returnedSave')
+                label(for='libcard') STUDENT ID :
+                input.form-control(name='libcard' id='libcard' type='text' value=returned.libcard required='true')
+                label(for='isbn') ISBN NUMBER :
+                input.form-control(name='isbn' id='isbn' type='text' value=returned.book_ref required='true')
+                label(for='req_date') REQUEST DATE :
+                input.form-control(name='req_date' id='req_date' type='text' value=returned.req_date required='true')
+                label(for='issue_date') ISSUE DATE :
+                input.form-control(name='issue_date' id='issue_date' type='text' value=returned.issue_date required='true')
+                label(for='return_date') RETURN DATE :
+                input.form-control(name='return_date' id='return_date' type='text' value=returned.return_date required='true')
+                label(for='fine') FINE :
+                input.form-control(name='fine' id='fine' type='text' value=returned.fine required='true')
+                input.btn.btn-primary(type='submit' value='RETURN')
+        else
+            form.form-group(method='POST' action='/adminpage/takeBook')
+                label(for='isbn') ENTER ISBN NUMBER :
+                input.form-control(name='isbn' id='isbn' type='text' required='true')
+                input.btn.btn-primary(type='submit' value='Get Details !!')
